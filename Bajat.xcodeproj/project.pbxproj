@@ -14,6 +14,10 @@
 		3838359E288B0E0100C9AC80 /* BajatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838359D288B0E0100C9AC80 /* BajatTests.swift */; };
 		383835A8288B0E0100C9AC80 /* BajatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383835A7288B0E0100C9AC80 /* BajatUITests.swift */; };
 		383835AA288B0E0100C9AC80 /* BajatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383835A9288B0E0100C9AC80 /* BajatUITestsLaunchTests.swift */; };
+		383835BF288B152B00C9AC80 /* ffibridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 383835BD288B143500C9AC80 /* ffibridge.h */; };
+		38927BAD288B30DF00D1F553 /* libbajat_ffi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38927BAC288B30DF00D1F553 /* libbajat_ffi.xcframework */; };
+		38927BAE288B30DF00D1F553 /* libbajat_ffi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38927BAC288B30DF00D1F553 /* libbajat_ffi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38E6AF90288B1F1C00543810 /* FFI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E6AF8F288B1F1C00543810 /* FFI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		38927BAF288B30DF00D1F553 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				38927BAE288B30DF00D1F553 /* libbajat_ffi.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		38383589288B0E0100C9AC80 /* Bajat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bajat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3838358C288B0E0100C9AC80 /* BajatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BajatApp.swift; sourceTree = "<group>"; };
@@ -44,6 +62,11 @@
 		383835A3288B0E0100C9AC80 /* BajatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BajatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		383835A7288B0E0100C9AC80 /* BajatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BajatUITests.swift; sourceTree = "<group>"; };
 		383835A9288B0E0100C9AC80 /* BajatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BajatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		383835BB288B133100C9AC80 /* compile-library.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "compile-library.sh"; sourceTree = "<group>"; };
+		383835BD288B143500C9AC80 /* ffibridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ffibridge.h; sourceTree = "<group>"; };
+		386173B0288B2C0100A1B264 /* libbajat_ffi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libbajat_ffi.xcframework; sourceTree = "<group>"; };
+		38927BAC288B30DF00D1F553 /* libbajat_ffi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libbajat_ffi.xcframework; path = bin/libbajat_ffi.xcframework; sourceTree = "<group>"; };
+		38E6AF8F288B1F1C00543810 /* FFI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38927BAD288B30DF00D1F553 /* libbajat_ffi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +98,13 @@
 		38383580288B0E0100C9AC80 = {
 			isa = PBXGroup;
 			children = (
+				383835BC288B141D00C9AC80 /* include */,
+				383835BA288B131300C9AC80 /* bin */,
 				3838358B288B0E0100C9AC80 /* Bajat */,
 				3838359C288B0E0100C9AC80 /* BajatTests */,
 				383835A6288B0E0100C9AC80 /* BajatUITests */,
 				3838358A288B0E0100C9AC80 /* Products */,
+				383835B6288B104100C9AC80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +121,7 @@
 		3838358B288B0E0100C9AC80 /* Bajat */ = {
 			isa = PBXGroup;
 			children = (
+				38E6AF8E288B1F0600543810 /* Helpers */,
 				3838358C288B0E0100C9AC80 /* BajatApp.swift */,
 				3838358E288B0E0100C9AC80 /* ContentView.swift */,
 				38383590288B0E0100C9AC80 /* Assets.xcassets */,
@@ -127,16 +155,63 @@
 			path = BajatUITests;
 			sourceTree = "<group>";
 		};
+		383835B6288B104100C9AC80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38927BAC288B30DF00D1F553 /* libbajat_ffi.xcframework */,
+				386173B0288B2C0100A1B264 /* libbajat_ffi.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		383835BA288B131300C9AC80 /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				383835BB288B133100C9AC80 /* compile-library.sh */,
+			);
+			path = bin;
+			sourceTree = "<group>";
+		};
+		383835BC288B141D00C9AC80 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				383835BD288B143500C9AC80 /* ffibridge.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		38E6AF8E288B1F0600543810 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				38E6AF8F288B1F1C00543810 /* FFI.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		383835BE288B150700C9AC80 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				383835BF288B152B00C9AC80 /* ffibridge.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		38383588288B0E0100C9AC80 /* Bajat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 383835AD288B0E0100C9AC80 /* Build configuration list for PBXNativeTarget "Bajat" */;
 			buildPhases = (
+				383835B9288B124300C9AC80 /* Build Rust library */,
+				383835BE288B150700C9AC80 /* Headers */,
 				38383585288B0E0100C9AC80 /* Sources */,
 				38383586288B0E0100C9AC80 /* Frameworks */,
 				38383587288B0E0100C9AC80 /* Resources */,
+				38927BAF288B30DF00D1F553 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +327,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		383835B9288B124300C9AC80 /* Build Rust library */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Rust library";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "bash ${PROJECT_DIR}/bin/compile-library.sh bajat-ffi $buildvariant\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		38383585288B0E0100C9AC80 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -259,6 +356,7 @@
 			files = (
 				3838358F288B0E0100C9AC80 /* ContentView.swift in Sources */,
 				3838358D288B0E0100C9AC80 /* BajatApp.swift in Sources */,
+				38E6AF90288B1F1C00543810 /* FFI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -423,18 +521,24 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.akashgurava.Bajat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/include/ffibridge.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				buildvariant = debug;
 			};
 			name = Debug;
 		};
@@ -452,18 +556,24 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.akashgurava.Bajat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/include/ffibridge.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				buildvariant = release;
 			};
 			name = Release;
 		};
